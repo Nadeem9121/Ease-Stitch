@@ -41,6 +41,13 @@ app.use(mongoSanitze());
 //DATA SANITIZATION AGAINST XSS
 app.use(xss());
 
+app.use("/", (req, res) => {
+  res.send({
+    status: "success",
+    message: "welcome to the ease stitch app",
+  });
+});
+
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/user-verification", userVerificationRoutes);
 app.use("/api/v1/password-reset", passwordResetRoutes);
